@@ -7,11 +7,18 @@
  */
 
 return [
-    [   // 供应商信息
+    [
         'class' => 'yii\rest\UrlRule',
         'controller' => ['v1/demo'],
         'extraPatterns' => [
             'GET,OPTIONS index' => 'index',
+        ],
+    ],
+    [
+        'class' => 'yii\rest\UrlRule',
+        'controller' => ['v1/login'],
+        'extraPatterns' => [
+            'POST,OPTIONS /' => 'login',
         ],
     ],
 ];

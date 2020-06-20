@@ -1,7 +1,9 @@
 <?php
 
 namespace backend\modules\v1\controllers;
-use yii\web\Controller;
+use backend\modules\v1\controllers\base\BaseLoginController;
+use common\constants\BConstant;
+use common\utils\RetUtil;
 
 /**
  * Created by PhpStorm.
@@ -9,9 +11,9 @@ use yii\web\Controller;
  * Date: 2020/6/18
  * Time: 15:29
  */
-class DemoController extends Controller
+class DemoController extends BaseLoginController
 {
     public function actionIndex(){
-        echo 'okok';
+        return RetUtil::jsonReturn(BConstant::CODE_SUCCESS, '哈哈', [1,2,3]);
     }
 }
