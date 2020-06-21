@@ -12,7 +12,7 @@ use yii\web\UnauthorizedHttpException;
  */
 class BaseHttpBearerAuth extends HttpBasicAuth
 {
-    public $from;
+    //public $from;
 
     public function authenticate($user, $request, $response)
     {
@@ -27,10 +27,11 @@ class BaseHttpBearerAuth extends HttpBasicAuth
 //        return $this->from->identity;
 
         $userInfo = \Yii::$app->session->get('UserInfo');
+        file_put_contents('test.txt', \Yii::$app->session->get('UserInfo'));
         if (!$userInfo){
-            echo '未登陆';die();
+            return null;
         }
-        
+
         return json_decode($userInfo, true);
     }
 }

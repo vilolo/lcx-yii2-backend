@@ -14,6 +14,7 @@ use common\utils\RetUtil;
 class DemoController extends BaseLoginController
 {
     public function actionIndex(){
-        return RetUtil::jsonReturn(BConstant::CODE_SUCCESS, '哈哈', [1,2,3]);
+        $data = \Yii::$app->request->getBodyParams();
+        return RetUtil::jsonReturn(BConstant::CODE_SUCCESS, '哈哈', $data);
     }
 }

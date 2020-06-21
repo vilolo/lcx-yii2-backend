@@ -11,7 +11,7 @@ return [
         'class' => 'yii\rest\UrlRule',
         'controller' => ['v1/demo'],
         'extraPatterns' => [
-            'GET,OPTIONS index' => 'index',
+            'POST,OPTIONS index' => 'index',
         ],
     ],
     [

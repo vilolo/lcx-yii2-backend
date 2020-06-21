@@ -27,11 +27,11 @@ class RetUtil
         return \Yii::$app->response->data;
     }
 
-    public static function successReturn(){
-        return self::jsonReturn(BConstant::CODE_SUCCESS);
+    public static function successReturn($data = []){
+        return self::jsonReturn(BConstant::CODE_SUCCESS, '', $data);
     }
 
-    public static function errorReturn(){
-        return self::jsonReturn(BConstant::CODE_REEOR);
+    public static function errorReturn($msg = ''){
+        return self::jsonReturn(BConstant::CODE_REEOR, $msg);
     }
 }
