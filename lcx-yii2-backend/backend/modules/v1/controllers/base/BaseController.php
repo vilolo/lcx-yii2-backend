@@ -24,7 +24,7 @@ class BaseController extends ActiveController
             'corsFilter' => [
                 'class' => Cors::class,
                 'cors' => [
-                    'Origin' => ['http://localhost:8080'],
+                    'Origin' => \Yii::$app->params['corsOrigin'],
                     'Access-Control-Request-Method' => ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'HEAD', 'OPTIONS'],
                     'Access-Control-Request-Headers' => ['*'],
                     'Access-Control-Allow-Credentials' => true,
