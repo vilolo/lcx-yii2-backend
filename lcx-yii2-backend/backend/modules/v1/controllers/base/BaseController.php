@@ -1,11 +1,9 @@
 <?php
 
 namespace backend\modules\v1\controllers\base;
-use common\constants\BConstant;
 use yii\filters\Cors;
 use yii\helpers\ArrayHelper;
-use yii\web\Controller;
-use yii\web\Response;
+use yii\rest\ActiveController;
 
 /**
  * Created by PhpStorm.
@@ -13,7 +11,7 @@ use yii\web\Response;
  * Date: 2020/6/18
  * Time: 16:35
  */
-class BaseController extends Controller
+class BaseController extends ActiveController
 {
     public function init()
     {
@@ -26,7 +24,7 @@ class BaseController extends Controller
             'corsFilter' => [
                 'class' => Cors::class,
                 'cors' => [
-                    'Origin' => ['http://localhost:8081'],
+                    'Origin' => ['http://localhost:8080'],
                     'Access-Control-Request-Method' => ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'HEAD', 'OPTIONS'],
                     'Access-Control-Request-Headers' => ['*'],
                     'Access-Control-Allow-Credentials' => true,

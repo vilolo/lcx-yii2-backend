@@ -14,7 +14,7 @@ use yii\helpers\ArrayHelper;
 
 class BaseLoginController extends BaseController
 {
-    protected $identity;
+    public $identity;
 
     public function behaviors(){
         if (\Yii::$app->request->isOptions) {
@@ -26,10 +26,11 @@ class BaseLoginController extends BaseController
 
         $auth = [ //验证token
             'class' => BaseHttpBearerAuth::class,
-            //'from'=>$this
+            'from'=>$this
         ];
 
-        //unset($behaviors['authenticator']);
+        //排序
+        unset($behaviors['authenticator']);
         $behaviors['authenticator'] = $auth;
 
         return $behaviors;

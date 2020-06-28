@@ -1,6 +1,7 @@
 <?php
 
 namespace backend\modules\v1\controllers\behaviors;
+use common\error\ErrorCode;
 use yii\filters\auth\HttpBasicAuth;
 use yii\web\UnauthorizedHttpException;
 
@@ -12,7 +13,7 @@ use yii\web\UnauthorizedHttpException;
  */
 class BaseHttpBearerAuth extends HttpBasicAuth
 {
-    //public $from;
+    public $from;
 
     public function authenticate($user, $request, $response)
     {
@@ -26,12 +27,14 @@ class BaseHttpBearerAuth extends HttpBasicAuth
 //        }
 //        return $this->from->identity;
 
-        $userInfo = \Yii::$app->session->get('UserInfo');
-        file_put_contents('test.txt', \Yii::$app->session->get('UserInfo'));
-        if (!$userInfo){
-            return null;
+        if (empty($this->from->identity)){
+            $userInfo = \Yii::$app->session->get('UserInfo');
+            if (!$userInfo){
+                throw new UnauthorizedHttpException('未登陆',401);
+            }
+            $this->from->identity = json_decode($userInfo, true);
         }
 
-        return json_decode($userInfo, true);
+        return $this->from->identity;
     }
 }

@@ -19,6 +19,7 @@ return [
         'controller' => ['v1/login'],
         'extraPatterns' => [
             'POST,OPTIONS /' => 'login',
+            'POST,OPTIONS logout' => 'logout'
         ],
     ],
 ];

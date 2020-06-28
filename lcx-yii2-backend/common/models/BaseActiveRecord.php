@@ -3,7 +3,7 @@
 namespace common\models;
 
 use common\error\ErrorCode;
-use common\error\ReturnErrorTrait;
+use Yii;
 use yii\db\ActiveQuery;
 use yii\db\ExpressionInterface;
 use yii\db\Query;
@@ -13,7 +13,7 @@ use yii\db\Query;
  */
 class BaseActiveRecord extends \yii\db\ActiveRecord
 {
-    use ReturnErrorTrait;
+    use \common\error\ReturnErrorTrait;
 
     const DEL_STATE_NO = 0; //未删除
     const DEL_STATE_YES = 1; //已删除
@@ -341,7 +341,7 @@ class BaseActiveRecord extends \yii\db\ActiveRecord
             }
             $result = $model->save();
             if ($model->hasErrors()) {
-                return self::setAndReturn(ErrorCode::ERR_DATABASE_ERROR, $model->getErrorSummary(true));
+                return self::setAndReturn(ErrorCode::ERR_DATABASE_ERROR, print_r($model->getErrorSummary(true), true));
             } else {
                 return $result;
             }
@@ -447,7 +447,7 @@ class BaseActiveRecord extends \yii\db\ActiveRecord
     public function batchInsertData(array $columns, array $dataArr)
     {
         try {
-            return \Yii::$app->db->createCommand()->batchInsert(self::tableName(), $columns, $dataArr)->execute();
+            return Yii::$app->db->createCommand()->batchInsert(self::tableName(), $columns, $dataArr)->execute();
         }
         catch (\Exception $e) {
             return self::setAndReturn(ErrorCode::ERR_DATABASE_ERROR, $e->getMessage());
@@ -692,4 +692,5 @@ class BaseActiveRecord extends \yii\db\ActiveRecord
     {
         $this->_phpTypecast = $value;
     }
+    
 }

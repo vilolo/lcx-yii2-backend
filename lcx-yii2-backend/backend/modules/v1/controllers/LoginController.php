@@ -20,6 +20,7 @@ class LoginController extends BaseController
         $model = new LoginForm();
 
         if ($model->load(\Yii::$app->request->post(), '') && $model->login()) {
+            \Yii::$app->session->open();
             \Yii::$app->session->set('UserInfo',
                 json_encode(['uid' => \Yii::$app->user->identity['id'],
                     'username' => \Yii::$app->user->identity['username']], JSON_UNESCAPED_UNICODE));
@@ -28,5 +29,10 @@ class LoginController extends BaseController
         } else {
             return RetUtil::jsonReturn(BConstant::CODE_REEOR);
         }
+    }
+
+    public function actionLogout(){
+        \Yii::$app->session->destroy();
+        return RetUtil::successReturn();
     }
 }

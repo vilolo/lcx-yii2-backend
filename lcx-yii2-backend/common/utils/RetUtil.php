@@ -2,6 +2,7 @@
 
 namespace common\utils;
 use common\constants\BConstant;
+use common\error\ErrorInfo;
 use yii\web\Response;
 
 /**
@@ -32,6 +33,6 @@ class RetUtil
     }
 
     public static function errorReturn($msg = ''){
-        return self::jsonReturn(BConstant::CODE_REEOR, $msg);
+        return self::jsonReturn(BConstant::CODE_REEOR, $msg?$msg:ErrorInfo::getLogMsg());
     }
 }
