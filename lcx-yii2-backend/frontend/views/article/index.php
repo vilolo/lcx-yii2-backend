@@ -1,5 +1,5 @@
 <!-- BANNER -->
-<div class="section banner-page" data-background="<?= $banner['img']?>">
+<div class="section banner-page" data-background="<?= $banner['img']??'' ?>">
     <div class="content-wrap pos-relative">
         <div class="d-flex justify-content-center bd-highlight mb-3">
 <!--            <div class="title-page">ABOUT</div>-->
