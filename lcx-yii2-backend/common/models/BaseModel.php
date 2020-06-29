@@ -84,6 +84,9 @@ class BaseModel extends ActiveRecord
         
         if ($params[$imgField] && $params['fileName']){
             $params[$imgField] = $model->updateBase64($params[$imgField], $params['fileName'], $imgFolder);
+            if (!$params[$imgField]){
+                return self::setAndReturn(ErrorCode::ERROR, '图片保存失败');
+            }
         }else{
             unset($params[$imgField]);
         }

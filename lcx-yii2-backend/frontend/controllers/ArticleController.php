@@ -10,6 +10,7 @@ namespace frontend\controllers;
 
 
 use common\models\ArticleModel;
+use common\models\ImgDescModel;
 
 class ArticleController extends BaseController
 {
@@ -17,8 +18,10 @@ class ArticleController extends BaseController
     {
         $id = \Yii::$app->request->get('id');
         $article = ArticleModel::findOne(['id' => $id]);
+        $bannerList = ImgDescModel::instance()->getList(2, 1);
         return $this->render('index', [
-            'data' => $article
+            'data' => $article,
+            'banner' => $bannerList
         ]);
     }
 }

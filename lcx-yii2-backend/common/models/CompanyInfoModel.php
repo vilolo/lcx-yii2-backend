@@ -28,6 +28,7 @@ class CompanyInfoModel extends BaseModel
             ['email', 'safe'],
             ['phone', 'safe'],
             ['logo', 'safe'],
+            ['address', 'safe'],
             ['description', 'safe'],
 //            [['logo'], 'file', 'skipOnEmpty' => true, 'extensions' => 'png, jpg'],
         ];

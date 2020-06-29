@@ -78,16 +78,22 @@ AppAsset::register($this);
                 <div class="collapse navbar-collapse" id="navbarNavDropdown">
                     <ul class="navbar-nav ml-auto">
                         <?php foreach ($this->params['navList'] as $v):?>
+                            <?php if (isset($v['child']) && !empty($v['child'])):?>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="<?= $v['url'] ?>" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <?= $v['name'] ?>
                                 </a>
                                 <div class="dropdown-menu">
-                                    <?php if (isset($v['child']) && !empty($v['child'])): foreach ($v['child'] as $v2): ?>
+                                    <?php foreach ($v['child'] as $v2): ?>
                                     <a class="dropdown-item" href="<?= $v2['url'] ?>"><?= $v2['name']?></a>
-                                    <?php endforeach; endif; ?>
+                                    <?php endforeach; ?>
                                 </div>
                             </li>
+                            <?php else: ?>
+                            <li class="nav-item">
+                                <a class="nav-link" href="<?= $v['url'] ?>"><?= $v['name']?></a>
+                            </li>
+                            <?php endif; ?>
                         <?php endforeach; ?>
                     </ul>
                 </div>
@@ -160,24 +166,18 @@ AppAsset::register($this);
                                 <div class="info-icon">
                                     <span class="fa fa-map-marker"></span>
                                 </div>
-                                <div class="info-text">99 S.t Jomblo Park Pekanbaru 28292. Indonesia</div> </li>
+                                <div class="info-text"><?= $this->params['company']['address'] ?></div> </li>
                             <li>
                                 <div class="info-icon">
                                     <span class="fa fa-phone"></span>
                                 </div>
-                                <div class="info-text">(0761) 654-123987</div>
+                                <div class="info-text"><?= $this->params['company']['phone'] ?></div>
                             </li>
                             <li>
                                 <div class="info-icon">
                                     <span class="fa fa-envelope"></span>
                                 </div>
-                                <div class="info-text">info@yoursite.com</div>
-                            </li>
-                            <li>
-                                <div class="info-icon">
-                                    <span class="fa fa-clock-o"></span>
-                                </div>
-                                <div class="info-text">Mon - Sat 09:00 - 17:00</div>
+                                <div class="info-text"><?= $this->params['company']['email'] ?></div>
                             </li>
                         </ul>
 

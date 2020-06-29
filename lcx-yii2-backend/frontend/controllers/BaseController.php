@@ -23,7 +23,7 @@ class BaseController extends Controller
         }
 
         //获取导航菜单
-        $navList = NavigationModel::find()->where(['status' => 1])->asArray()->all();
+        $navList = NavigationModel::find()->orderBy('sort')->where(['status' => 1])->asArray()->all();
         $newNav = [];
         foreach ($navList as $k => $v){
             if ($v['level'] == 0){
@@ -40,5 +40,27 @@ class BaseController extends Controller
 
         \Yii::$app->view->params['company'] = $company;
         \Yii::$app->view->params['navList'] = $newNav;
+    }
+
+    protected function curlGet($url){
+        $header = array(
+            'Accept: application/json',
+        );
+        $curl = curl_init();
+        curl_setopt($curl, CURLOPT_URL, $url);
+        curl_setopt($curl, CURLOPT_HEADER, 0);
+        curl_setopt($curl, CURLOPT_TIMEOUT, 1);
+        curl_setopt($curl, CURLOPT_HTTPHEADER, $header);
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, false);
+        $data = curl_exec($curl);
+
+        if (curl_error($curl)) {
+            return "Error: " . curl_error($curl);
+        } else {
+            curl_close($curl);
+            return $data;
+        }
     }
 }

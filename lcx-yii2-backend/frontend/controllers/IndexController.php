@@ -17,8 +17,16 @@ class IndexController extends BaseController
         //banner
         $bannerList = ImgDescModel::instance()->getList(1);
 
+        //轮播图
+        $carousel = ImgDescModel::instance()->getList(4);
+        
+        //产品
+        $product = ImgDescModel::instance()->getList(3);
+
         return $this->render('index', [
-            'bannerList' => $bannerList
+            'bannerList' => $bannerList,
+            'carousel' => $carousel,
+            'product' => $product
         ]);
     }
 }

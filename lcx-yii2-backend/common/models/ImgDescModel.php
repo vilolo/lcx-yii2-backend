@@ -29,14 +29,17 @@ class ImgDescModel extends BaseModel
         return 'img_desc';
     }
 
-    public function getList($categoryId = 0)
+    public function getList($categoryId = 0, $limit = 0)
     {
-        $where = [];
+        $where = ['status' => 1];
         if ($categoryId > 0){
             $where['category_id'] = $categoryId;
         }
-
-        $res = $this->find()->where($where)->asArray()->orderBy('id desc')->all();
+        $model = $this->find()->where($where)->asArray()->orderBy('id desc');
+        if ($limit>0){
+            $model->limit($limit);
+        }
+        $res = $model->all();
         $type = [
             1 => '大Banner（1920*900）',
             2 => '小Banner（1920*300）',
@@ -49,6 +52,6 @@ class ImgDescModel extends BaseModel
             $res[$k]['category_id'] = $type[$v['category_id']]??'';
         }
 
-        return $res;
+        return $limit==1?$res[0]:$res;
     }
 }

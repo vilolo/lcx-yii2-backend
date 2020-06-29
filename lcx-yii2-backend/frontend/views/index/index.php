@@ -136,18 +136,11 @@
                 <div class="col-sm-12 col-md-12 col-lg-6">
 
                     <div id="whoweare" class="whoweare owl-carousel owl-theme" data-background="../../public/images/laptop.png">
-                        <!-- Item 1 -->
+                        <?php if(!empty($carousel)): foreach ($carousel as $v): ?>
                         <div class="item">
-                            <img src="../../public/images/dummy-img-600x400.jpg" alt="">
+                            <img src="<?= $v['img']?>" alt="">
                         </div>
-                        <!-- Item 2 -->
-                        <div class="item">
-                            <img src="../../public/images/dummy-img-600x400.jpg" alt="">
-                        </div>
-                        <!-- Item 3 -->
-                        <div class="item">
-                            <img src="../../public/images/dummy-img-600x400.jpg" alt="">
-                        </div>
+                        <?php endforeach; endif; ?>
                     </div>
 
                 </div>
@@ -171,55 +164,23 @@
             </div>
 
             <div class="row mt-4">
-
+                
+                <?php if (!empty($product)): foreach ($product as $v): ?>
                 <!-- Item 1 -->
                 <div class="col-sm-12 col-md-12 col-lg-4">
                     <div class="rs-news-1 mb-1">
                         <div class="media-box">
-                            <div class="meta-date"><span>30</span>May</div>
                             <a href="blog-single.html">
-                                <img src="../../public/images/dummy-img-600x500.jpg" alt="" class="img-fluid">
+                                <img src="<?= $v['img'] ?>" alt="" class="img-fluid">
                             </a>
                         </div>
                         <div class="body-box">
-                            <div class="title"><a href="blog-single.html">TYPING NEW KEYBOARD</a></div>
-                            <p>Dignissimos ccusamus et iusto odio ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores....</p>
+                            <div class="title"><a href="<?=$v['url']?>"><?=$v['desc1']?></a></div>
+                            <p><?=$v['desc2']?></p>
                         </div>
                     </div>
                 </div>
-
-                <!-- Item 2 -->
-                <div class="col-sm-12 col-md-12 col-lg-4">
-                    <div class="rs-news-1 mb-1">
-                        <div class="media-box">
-                            <div class="meta-date"><span>04</span>Jun</div>
-                            <a href="blog-single.html">
-                                <img src="../../public/images/dummy-img-600x500.jpg" alt="" class="img-fluid">
-                            </a>
-                        </div>
-                        <div class="body-box">
-                            <div class="title"><a href="blog-single.html">NEW HARDWARE SHOW UP</a></div>
-                            <p>Dignissimos ccusamus et iusto odio ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores....</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Item 3 -->
-                <div class="col-sm-12 col-md-12 col-lg-4">
-                    <div class="rs-news-1 mb-1">
-                        <div class="media-box">
-                            <div class="meta-date"><span>16</span>Jun</div>
-                            <a href="blog-single.html">
-                                <img src="../../public/images/dummy-img-600x500.jpg" alt="" class="img-fluid">
-                            </a>
-                        </div>
-                        <div class="body-box">
-                            <div class="title"><a href="blog-single.html">MOCK WITH WOOD TABLE</a></div>
-                            <p>Dignissimos ccusamus et iusto odio ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores....</p>
-                        </div>
-                    </div>
-                </div>
-
+                <?php endforeach; endif;?>
             </div>
 
             <div class="row mt-4">
@@ -233,8 +194,3 @@
         </div>
     </div>
 </div>
-
-<?php
-//    $js = "alert('asdf')";
-//    $this->registerJs($js);
-?>

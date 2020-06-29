@@ -33,7 +33,7 @@ class AppAsset extends AssetBundle
         'public/js/vendor/imagesloaded.pkgd.min.js',
 
         'public/js/vendor/validator.min.js',
-        'public/js/vendor/form-scripts.js',
+        //'public/js/vendor/form-scripts.js',
 
         //'public/js/googlemap-setting.js',
         //'https://maps.googleapis.com/maps/api/js?key=AIzaSyA-CE0deH3Jhj6GN4YvdCFZS7DpbXexzGU&callback=initMap',
