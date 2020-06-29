@@ -52,6 +52,6 @@ class ImgDescModel extends BaseModel
             $res[$k]['category_id'] = $type[$v['category_id']]??'';
         }
 
-        return $limit==1?$res[0]:$res;
+        return $limit==1?($res[0]??[]):$res;
     }
 }
