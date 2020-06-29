@@ -58,6 +58,7 @@
             </div>
 
             <div class="row">
+                <?php if(!empty($iconText)): foreach ($iconText as $v):?>
                 <!-- Item 1 -->
                 <div class="col-sm-12 col-md-12 col-lg-4 mb-2">
                     <div class="box-icon-1 text-center">
@@ -65,11 +66,12 @@
                             <i class="fa fa-paint-brush"></i>
                         </div>
                         <div class="body-content">
-                            <h4>Awesome Design</h4>
-                            <p>Dolor sit amet dolor gravida placerat liberolorem ipsum dolor consectetur adipiscing elit, sed do eiusmod.</p>
+                            <h4><?= $v['desc1'] ?></h4>
+                            <p><?= $v['desc2'] ?></p>
                         </div>
                     </div>
                 </div>
+                <?php endforeach; endif; ?>
                 <!-- Item 2 -->
                 <div class="col-sm-12 col-md-12 col-lg-4 mb-2">
                     <div class="box-icon-1 text-center">
@@ -120,17 +122,15 @@
 <div class="section bg-gray-light">
     <div class="content-wrap">
         <div class="container">
-
-
             <div class="row">
                 <div class="col-sm-12 col-md-12 col-lg-6">
                     <h2 class="section-heading text-left">
-                        WHO WE ARE?
+                        <?= $desc['desc1']??'' ?>
                     </h2>
-
-                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium dolore mque laudantium, totam rem aperiam, eaque ipsa quae ab illo invent.</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-                    <a href="#" class="btn btn-primary">READ MORE</a>
+                    <?= $desc['desc2']??'' ?>
+                    <?php if ($desc): ?>
+                    <a href="<?=$v['url']?>" class="btn btn-primary">READ MORE</a>
+                    <?php endif; ?>
                     <div class="spacer-30"></div>
                 </div>
                 <div class="col-sm-12 col-md-12 col-lg-6">

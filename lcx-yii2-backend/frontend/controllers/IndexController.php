@@ -23,10 +23,18 @@ class IndexController extends BaseController
         //产品
         $product = ImgDescModel::instance()->getList(3);
 
+        //图标+文字
+        $iconText = ImgDescModel::instance()->getList(5);
+
+        //文字
+        $desc = ImgDescModel::instance()->getList(6, 1);
+
         return $this->render('index', [
             'bannerList' => $bannerList,
             'carousel' => $carousel,
-            'product' => $product
+            'product' => $product,
+            'iconText' => $iconText,
+            'desc' => $desc
         ]);
     }
 }
