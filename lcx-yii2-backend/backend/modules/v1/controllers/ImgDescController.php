@@ -11,6 +11,7 @@ namespace backend\modules\v1\controllers;
 
 use backend\modules\v1\controllers\base\BaseController;
 use common\error\ErrorCode;
+use common\models\ImgDescCategoryModel;
 use common\models\ImgDescModel;
 use common\utils\RetUtil;
 
@@ -37,5 +38,10 @@ class ImgDescController extends BaseController
         $detail = ImgDescModel::instance()->findOne(['id' => $id]);
         $detail['img'] = $detail['img'] ? \Yii::$app->request->hostInfo.'/'.$detail['img']:'';
         return RetUtil::successReturn($detail);
+    }
+
+    public function actionGetCategory(){
+        $res = ImgDescCategoryModel::instance()->findAll(['status' => 1]);
+        return RetUtil::successReturn($res);
     }
 }

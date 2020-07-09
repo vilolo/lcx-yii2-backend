@@ -30,11 +30,8 @@ class NavigationModel extends BaseModel
         return 'navigation';
     }
     
-    public function getList($params){
-        $where = [];
-        if (isset($params['level'])){
-            $where['level'] = $params['level'];
-        }
+    public function getList(){
+        $where = ['status' => 1];
         $list = $this->find()->where($where)->orderBy('relation, sort')->all();
         foreach ($list as $k => $v){
             if ($v['url']){
@@ -42,6 +39,7 @@ class NavigationModel extends BaseModel
                     $list[$k]['url'] = \Yii::$app->params['frontendUrl'].'/'.$v['url'];
                 }
             }
+            $v['name'] = str_repeat('-->', $v['level']).$v['name'];
         }
         return $list;
     }

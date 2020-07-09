@@ -19,10 +19,12 @@ class AppAsset extends AssetBundle
         'public/css/vendor/owl.theme.default.min.css',
         'public/css/vendor/magnific-popup.css',
         'public/css/vendor/animate.min.css',
-        'public/css/style.css'
+        'public/css/style.css',
+        'public/css/bootsnav.css'
     ];
 
     public $js = [
+        'public/js/bootsnav.js',
         'public/js/vendor/modernizr.min.js',
 
         'public/js/vendor/jquery.min.js',
@@ -39,6 +41,7 @@ class AppAsset extends AssetBundle
         //'https://maps.googleapis.com/maps/api/js?key=AIzaSyA-CE0deH3Jhj6GN4YvdCFZS7DpbXexzGU&callback=initMap',
 
         'public/js/script.js',
+
     ];
     public $depends = [
 

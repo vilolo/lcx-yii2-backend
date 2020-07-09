@@ -29,7 +29,7 @@ class ImgDescModel extends BaseModel
         return 'img_desc';
     }
 
-    public function getList($categoryId = 0, $limit = 0)
+    public function getList_old($categoryId = 0, $limit = 0)
     {
         $where = ['status' => 1];
         if ($categoryId > 0){
@@ -50,6 +50,29 @@ class ImgDescModel extends BaseModel
         foreach ($res as $k => $v){
             $res[$k]['img'] = $v['img'] ? \Yii::$app->params['backendUrl'].'/'.$v['img']:'';
             $res[$k]['category_id'] = $type[$v['category_id']]??'';
+        }
+
+        return $limit==1?($res[0]??[]):$res;
+    }
+
+    public function getList($categoryId = 0, $limit = 0)
+    {
+        $where = ['a.status' => 1];
+        if ($categoryId > 0){
+            $where['category_id'] = $categoryId;
+        }
+        $model = $this->find()->where($where)->alias('a')
+            ->join('join', 'img_desc_category b', 'a.category_id = b.id')
+            ->select('a.*, b.name category_name')
+            ->asArray()->orderBy('id desc');
+
+        if ($limit>0){
+            $model->limit($limit);
+        }
+        $res = $model->all();
+
+        foreach ($res as $k => $v){
+            $res[$k]['img'] = $v['img'] ? \Yii::$app->params['backendUrl'].'/'.$v['img']:'';
         }
 
         return $limit==1?($res[0]??[]):$res;

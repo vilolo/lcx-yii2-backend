@@ -3,7 +3,7 @@
 namespace backend\modules\v1\controllers\base;
 use yii\filters\Cors;
 use yii\helpers\ArrayHelper;
-use yii\rest\ActiveController;
+use yii\web\Controller;
 
 /**
  * Created by PhpStorm.
@@ -11,7 +11,7 @@ use yii\rest\ActiveController;
  * Date: 2020/6/18
  * Time: 16:35
  */
-class BaseController extends ActiveController
+class BaseController extends Controller
 {
     public function init()
     {

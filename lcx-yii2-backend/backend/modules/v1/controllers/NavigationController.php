@@ -17,8 +17,7 @@ use common\utils\RetUtil;
 class NavigationController extends BaseLoginController
 {
     public function actionList(){
-        $params = \Yii::$app->request->get();
-        $list = NavigationModel::instance()->getList($params);
+        $list = NavigationModel::instance()->getList();
         return RetUtil::successReturn($list);
     }
 
@@ -32,7 +31,8 @@ class NavigationController extends BaseLoginController
         $params = \Yii::$app->request->getBodyParams();
         $model = NavigationModel::instance();
         if (isset($params['pid']) && $params['pid']>0){
-            $params['level'] = 1;
+            $p = $model->findOne(['id' => $params['pid']]);
+            $params['level'] = (int)$p['level'] + 1;
         }
         $res = $model->doSave($params);
         if ($res === ErrorCode::ERROR){
