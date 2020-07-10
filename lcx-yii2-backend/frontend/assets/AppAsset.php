@@ -20,11 +20,11 @@ class AppAsset extends AssetBundle
         'public/css/vendor/magnific-popup.css',
         'public/css/vendor/animate.min.css',
         'public/css/style.css',
-        'public/css/bootsnav.css'
+//        'public/css/bootsnav.css'
     ];
 
     public $js = [
-        'public/js/bootsnav.js',
+//        'public/js/bootsnav.js',
         'public/js/vendor/modernizr.min.js',
 
         'public/js/vendor/jquery.min.js',

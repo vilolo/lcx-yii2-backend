@@ -95,6 +95,26 @@ AppAsset::register($this);
                             </li>
                             <?php endif; ?>
                         <?php endforeach; ?>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">1</a>
+                            <div class="dropdown-menu">
+                                <style>
+                                    .dropdown-submenu{display: none;}
+                                    .dropdown-sub:hover +.dropdown-submenu{display:block; position: absolute; margin-left: 100px; }
+                                    .dropdown-submenu:hover {display:block; position: absolute; margin-left: 100px; }
+                                </style>
+                                <a class="dropdown-item dropdown-sub" href="">11</a>
+                                <div class="dropdown-submenu">
+                                    <a class="dropdown-item" href="">111</a>
+                                    <a class="dropdown-item" href="">111</a>
+                                    <a class="dropdown-item" href="">111</a>
+                                </div>
+                                <a class="dropdown-item" href="">11</a>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="">2</a>
+                        </li>
                     </ul>
                 </div>
             </nav> <!-- -->
