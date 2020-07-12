@@ -28,7 +28,7 @@ class ArticleModel extends BaseModel
         return 'article';
     }
 
-    public function getList($params)
+    public function getList()
     {
         $res = $this->find()->select('id, title, cover, category_id, status, created_at, updated_at')
             ->orderBy('id desc')

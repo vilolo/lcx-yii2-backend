@@ -31,6 +31,13 @@ class CompanyInfoModel extends BaseModel
             ['address', 'safe'],
             ['description', 'safe'],
             ['introduce', 'safe'],
+
+            ['facebook', 'safe'],
+            ['twitter', 'safe'],
+            ['instagram', 'safe'],
+            ['pinterest', 'safe'],
+            ['linkedin', 'safe'],
+            
 //            [['logo'], 'file', 'skipOnEmpty' => true, 'extensions' => 'png, jpg'],
         ];
     }

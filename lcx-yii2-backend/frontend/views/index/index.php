@@ -27,11 +27,11 @@
                 <div class="col-sm-12 col-md-12">
                     <div class="cta-1">
                         <div class="body-text text-white mb-3">
-                            <h3 class="my-1">Grow Up Your Business With Coxe</h3>
-                            <p class="uk18 mb-0">We provide high standar clean website for your business solutions</p>
+                            <h3 class="my-1"><?= $titleBtn1['desc1']??'' ?></h3>
+                            <p class="uk18 mb-0"><?= $titleBtn1['desc2']??'' ?></p>
                         </div>
                         <div class="body-action mt-3">
-                            <a href="#" class="btn btn-secondary">PURCHASE NOW</a>
+                            <a href="<?= $titleBtn1['url']??'' ?>" class="btn btn-secondary"><?= $titleBtn1['btn_name']??'' ?></a>
                         </div>
                     </div>
                 </div>
@@ -50,9 +50,9 @@
 
                 <div class="col-sm-12 col-md-12">
                     <h2 class="section-heading text-center">
-                        Hello! Welcome to Coxe Business
+                        <?= $titleDesc1['desc1']??''?>
                     </h2>
-                    <p class="subheading text-center mb-5">Awesome features we offer exclusive only</p>
+                    <p class="subheading text-center mb-5"><?= $titleDesc1['desc2']??''?></p>
                 </div>
 
             </div>
@@ -63,7 +63,7 @@
                 <div class="col-sm-12 col-md-12 col-lg-4 mb-2">
                     <div class="box-icon-1 text-center">
                         <div class="icon">
-                            <i class="fa fa-paint-brush"></i>
+                            <img src="<?= $v['img'] ?>" width="85" height="85">
                         </div>
                         <div class="body-content">
                             <h4><?= $v['desc1'] ?></h4>
@@ -72,51 +72,29 @@
                     </div>
                 </div>
                 <?php endforeach; endif; ?>
-                <!-- Item 2 -->
-                <div class="col-sm-12 col-md-12 col-lg-4 mb-2">
-                    <div class="box-icon-1 text-center">
-                        <div class="icon">
-                            <i class="fa fa-gears"></i>
-                        </div>
-                        <div class="body-content">
-                            <h4>Easy Customize</h4>
-                            <p>Dolor sit amet dolor gravida placerat liberolorem ipsum dolor consectetur adipiscing elit, sed do eiusmod.</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Item 3 -->
-                <div class="col-sm-12 col-md-12 col-lg-4 mb-2">
-                    <div class="box-icon-1 text-center">
-                        <div class="icon">
-                            <i class="fa fa-rocket"></i>
-                        </div>
-                        <div class="body-content">
-                            <h4>Fast Publish</h4>
-                            <p>Dolor sit amet dolor gravida placerat liberolorem ipsum dolor consectetur adipiscing elit, sed do eiusmod.</p>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
 </div>
 
 <!-- CTA -->
-<!--<div class="section bgi-cover-center cta" data-background="../../public/images/dummy-img-1920x900.jpg">-->
-<!--    <div class="content-wrap">-->
-<!--        <div class="container">-->
-<!--            <div class="row align-items-center">-->
-<!--                <div class="col-sm-12 col-md-12 col-lg-8 offset-lg-2">-->
-<!--                    <div class="text-center">-->
-<!--                        <h2 class="text-white">COXE PRESENTATION</h2>-->
-<!--                        <p class="uk18 text-white">Click this video to explore more</p>-->
-<!--                        <a href="https://www.youtube.com/watch?v=vNDrLjOmUY4" class="popup-youtube btn-video"><i class="fa fa-play fa-2x"></i></a>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--</div>-->
+<?php if ($video): ?>
+<div class="section bgi-cover-center cta" data-background="<?= $video['img']??''?>">
+    <div class="content-wrap">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-sm-12 col-md-12 col-lg-8 offset-lg-2">
+                    <div class="text-center">
+                        <h2 class="text-white"><?= $video['desc1']??''?></h2>
+                        <p class="uk18 text-white"><?= $video['desc2']??''?></p>
+                        <a href="<?= $video['url']??''?>" class="popup-youtube btn-video"><i class="fa fa-play fa-2x"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<?php endif; ?>
 
 <!-- WHO WE ARE -->
 <div class="section bg-gray-light">
@@ -157,9 +135,9 @@
             <div class="row">
                 <div class="col-sm-12 col-md-12">
                     <h2 class="section-heading text-center text-primary no-after mb-5">
-                        LATEST NEWS
+                        <?= $titleDesc2['desc1']??''?>
                     </h2>
-                    <p class="subheading text-center">We provide high standar clean website for your business solutions</p>
+                    <p class="subheading text-center"><?= $titleDesc2['desc2']??''?></p>
                 </div>
             </div>
 
@@ -186,7 +164,7 @@
             <div class="row mt-4">
                 <div class="col-sm-12 col-md-12 col-lg-12">
                     <div class="text-center">
-                        <a href="#" class="btn btn-primary">MORE POST</a>
+                        <a href="<?= $bottomBtn['url']??'' ?>" class="btn btn-primary"><?= $bottomBtn['desc1']??'' ?></a>
                     </div>
                 </div>
             </div>
@@ -194,3 +172,14 @@
         </div>
     </div>
 </div>
+
+<?php
+$js = <<<JS
+    $('.owl-item').on('change', function() {
+      alert('1');
+    })
+
+JS;
+
+$this->registerJs($js);
+?>

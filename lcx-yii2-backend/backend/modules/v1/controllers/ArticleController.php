@@ -32,8 +32,7 @@ class ArticleController extends BaseController
     }
 
     public function actionList(){
-        $params = \Yii::$app->request->get();
-        $list = ArticleModel::instance()->getList($params);
+        $list = ArticleModel::instance()->getList();
         return RetUtil::successReturn($list);
     }
 
@@ -56,5 +55,35 @@ class ArticleController extends BaseController
     public function actionGetSelectList(){
         $res = ArticleModel::instance()->find()->where(['status' => 1])->select('id, title')->all();
         return RetUtil::successReturn($res);
+    }
+
+    public function actionGetNews(){
+        $res = ArticleModel::instance()->find()->where(['>', 'news', 0])->limit(2)
+            ->select('id, news')
+            ->all();
+        return RetUtil::successReturn($res);
+    }
+
+    public function actionUpdateNews(){
+        $params = \Yii::$app->request->post();
+        $model = ArticleModel::instance();
+        $model->updateAll(['news' => 0], ['>', 'news', 0]);
+        if (isset($params['news1'])){
+            $news1 = $model->findOne(['id' => $params['news1']]);
+            if (!$news1){
+                return RetUtil::errorReturn('文章不存在');
+            }
+            $news1->news = 1;
+            $news1->save();
+        }
+        if (isset($params['news2'])){
+            $news2 = $model->findOne(['id' => $params['news2']]);
+            if (!$news2){
+                return RetUtil::errorReturn('文章不存在');
+            }
+            $news2->news = 2;
+            $news2->save();
+        }
+        return RetUtil::successReturn();
     }
 }

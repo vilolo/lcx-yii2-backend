@@ -30,6 +30,12 @@ AppAsset::register($this);
     <link rel="apple-touch-icon" href="../../public/images/apple-touch-icon.png">
     <link rel="apple-touch-icon" sizes="72x72" href="../../public/images/apple-touch-icon-72x72.png">
     <link rel="apple-touch-icon" sizes="114x114" href="../../public/images/apple-touch-icon-114x114.png">
+    <style>
+        .dropdown-submenu{display: none; position: absolute; margin-left: 100px; margin-top: -30px;}
+        .dropdown-sub:hover +.dropdown-submenu{display:block;}
+        .dropdown-submenu:hover {display:block;}
+        .subitem {background-color: grey}
+    </style>
 </head>
 <body data-spy="scroll" data-target="#navbar-example">
 <?php $this->beginBody() ?>
@@ -48,10 +54,10 @@ AppAsset::register($this);
     <div class="topbar d-none d-md-block">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-sm-4 col-md-2 col-lg-4">
+                <div class="col-sm-4 col-md-2 col-lg-7">
                     <p class="mb-0"><em><?php echo $this->params['company']['description']; ?></em></p>
                 </div>
-                <div class="col-sm-8 col-md-10 col-lg-8">
+                <div class="col-sm-8 col-md-10 col-lg-5">
                     <div class="info pull-right">
                         <div class="info-item">
                             <i class="fa fa-envelope-o"></i> Mail :  <?php echo $this->params['company']['email']; ?>
@@ -85,7 +91,16 @@ AppAsset::register($this);
                                 </a>
                                 <div class="dropdown-menu">
                                     <?php foreach ($v['child'] as $v2): ?>
-                                    <a class="dropdown-item" href="<?= $v2['url'] ?>"><?= $v2['name']?></a>
+                                        <?php if ($v2['child']): ?>
+                                            <a class="dropdown-item dropdown-sub" href="javascript:"><?= $v2['name']?></a>
+                                            <div class="dropdown-submenu">
+                                                <?php foreach ($v2['child'] as $v3): ?>
+                                                    <a class="dropdown-item subitem" href="<?= $v3['url'] ?>"><?= $v3['name']?></a>
+                                                <?php endforeach; ?>
+                                            </div>
+                                        <?php else:?>
+                                            <a class="dropdown-item" href="<?= $v2['url'] ?>"><?= $v2['name']?></a>
+                                        <?php endif; ?>
                                     <?php endforeach; ?>
                                 </div>
                             </li>
@@ -95,26 +110,6 @@ AppAsset::register($this);
                             </li>
                             <?php endif; ?>
                         <?php endforeach; ?>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">1</a>
-                            <div class="dropdown-menu">
-                                <style>
-                                    .dropdown-submenu{display: none;}
-                                    .dropdown-sub:hover +.dropdown-submenu{display:block; position: absolute; margin-left: 100px; }
-                                    .dropdown-submenu:hover {display:block; position: absolute; margin-left: 100px; }
-                                </style>
-                                <a class="dropdown-item dropdown-sub" href="">11</a>
-                                <div class="dropdown-submenu">
-                                    <a class="dropdown-item" href="">111</a>
-                                    <a class="dropdown-item" href="">111</a>
-                                    <a class="dropdown-item" href="">111</a>
-                                </div>
-                                <a class="dropdown-item" href="">11</a>
-                            </div>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="">2</a>
-                        </li>
                     </ul>
                 </div>
             </nav> <!-- -->
@@ -134,13 +129,27 @@ AppAsset::register($this);
                     <div class="footer-item">
                         <img src="<?php echo $this->params['company']['logo']; ?>" alt="logo bottom" class="logo-bottom">
                         <div class="spacer-30"></div>
-                        <p>COXE is a clean, modern, and fully responsive Html Template. it is designed for corporate, finacial, insurance, agency, businesses or any type of person or business who wants to showcase their work, services and professional way.</p>
+                        <p><?= $this->params['company']['introduce']??'' ?></p>
                         <div class="sosmed-icon d-inline-flex">
-                            <a href="#"><i class="fa fa-facebook"></i></a>
-                            <a href="#"><i class="fa fa-twitter"></i></a>
-                            <a href="#"><i class="fa fa-instagram"></i></a>
-                            <a href="#"><i class="fa fa-pinterest"></i></a>
-                            <a href="#"><i class="fa fa-linkedin"></i></a>
+                            <?php if ($this->params['company']['facebook']): ?>
+                            <a href="<?= $this->params['company']['facebook'] ?>"><i class="fa fa-facebook"></i></a>
+                            <?php endif; ?>
+
+                            <?php if ($this->params['company']['twitter']): ?>
+                                <a href="<?= $this->params['company']['twitter'] ?>"><i class="fa fa-twitter"></i></a>
+                            <?php endif; ?>
+
+                            <?php if ($this->params['company']['instagram']): ?>
+                                <a href="<?= $this->params['company']['instagram'] ?>"><i class="fa fa-instagram"></i></a>
+                            <?php endif; ?>
+
+                            <?php if ($this->params['company']['pinterest']): ?>
+                                <a href="<?= $this->params['company']['pinterest'] ?>"><i class="fa fa-pinterest"></i></a>
+                            <?php endif; ?>
+
+                            <?php if ($this->params['company']['linkedin']): ?>
+                                <a href="<?= $this->params['company']['linkedin'] ?>"><i class="fa fa-linkedin"></i></a>
+                            <?php endif; ?>
                         </div>
                     </div>
                 </div>
@@ -152,9 +161,10 @@ AppAsset::register($this);
                         </div>
 
                         <ul class="recent-post">
-                            <li><a href="#" title="">The Best in dolor sit amet consectetur adipisicing elit sed</a>
-                                <span class="date"><i class="fa fa-clock-o"></i> June 16, 2017</span></li><li><a href="#" title="">The Best in dolor sit amet consectetur adipisicing elit sed</a>
-                                <span class="date"><i class="fa fa-clock-o"></i> June 16, 2017</span></li>
+                            <?php if ($this->params['latestNews']): foreach ($this->params['latestNews'] as $v): ?>
+                            <li><a href="<?= $v['url'] ?>" title=""><?= $v['title'] ?></a>
+                                <span class="date"><i class="fa fa-clock-o"></i> <?= date('F jS, Y',$v['created_at']) ?></span></li>
+                            <?php endforeach; endif;?>
                         </ul>
 
                     </div>
@@ -166,11 +176,9 @@ AppAsset::register($this);
                             USEFUL LINKS
                         </div>
                         <ul class="list">
-                            <li><a href="#" title="About Us">About Us</a></li>
-                            <li><a href="#" title="Corporate Profile">Corporate Profile</a></li>
-                            <li><a href="#" title="Our Team">Our Team</a></li>
-                            <li><a href="#" title="Portfolio">Portfolio</a></li>
-                            <li><a href="#" title="Our Office">Our Office</a></li>
+                            <?php if ($this->params['footNavList']): foreach ($this->params['footNavList'] as $v): ?>
+                            <li><a href="<?= $v['url'] ?>" title="About Us"><?= $v['name'] ?></a></li>
+                            <?php endforeach; endif;?>
                         </ul>
                     </div>
                 </div>

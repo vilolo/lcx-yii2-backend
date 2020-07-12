@@ -18,7 +18,7 @@ use common\utils\RetUtil;
 class ImgDescController extends BaseController
 {
     public function actionList(){
-        $list = ImgDescModel::instance()->getList();
+        $list = ImgDescModel::instance()->getListAdmin();
         return RetUtil::successReturn($list);
     }
 

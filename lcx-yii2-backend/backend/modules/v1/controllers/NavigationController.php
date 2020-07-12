@@ -21,6 +21,11 @@ class NavigationController extends BaseLoginController
         return RetUtil::successReturn($list);
     }
 
+    public function actionFootList(){
+        $list = NavigationModel::instance()->getList(true);
+        return RetUtil::successReturn($list);
+    }
+
     public function actionGetDetail(){
         $id = \Yii::$app->request->get('id');
         $detail = NavigationModel::instance()->findOne(['id' => $id]);

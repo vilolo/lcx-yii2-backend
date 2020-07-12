@@ -57,6 +57,27 @@ class ImgDescModel extends BaseModel
 
     public function getList($categoryId = 0, $limit = 0)
     {
+        $where = ['status' => 1];
+        if ($categoryId > 0){
+            $where['category_id'] = $categoryId;
+        }
+        $model = $this->find()->where($where)
+            ->asArray()->orderBy('id desc');
+
+        if ($limit>0){
+            $model->limit($limit);
+        }
+        $res = $model->all();
+
+        foreach ($res as $k => $v){
+            $res[$k]['img'] = $v['img'] ? \Yii::$app->params['backendUrl'].'/'.$v['img']:'';
+        }
+
+        return $limit==1?($res[0]??[]):$res;
+    }
+
+    public function getListAdmin($categoryId = 0, $limit = 0)
+    {
         $where = ['a.status' => 1];
         if ($categoryId > 0){
             $where['category_id'] = $categoryId;

@@ -30,16 +30,22 @@ class NavigationModel extends BaseModel
         return 'navigation';
     }
     
-    public function getList(){
-        $where = ['status' => 1];
-        $list = $this->find()->where($where)->orderBy('relation, sort')->all();
+    public function getList($isFoot = false){
+        if ($isFoot){
+            $where = ['level' => -1];
+        }else{
+            $where = ['>=', 'level', 0];
+        }
+        $list = $this->find()->where(['status' => 1])
+            ->andWhere($where)
+            ->orderBy('relation, sort')->all();
         foreach ($list as $k => $v){
             if ($v['url']){
                 if (strpos($v['url'], 'http') === false){
                     $list[$k]['url'] = \Yii::$app->params['frontendUrl'].'/'.$v['url'];
                 }
             }
-            $v['name'] = str_repeat('-->', $v['level']).$v['name'];
+            $v['name'] = !$isFoot ? str_repeat(' --> ', $v['level']).$v['name'] : $v['name'];
         }
         return $list;
     }

@@ -26,15 +26,35 @@ class IndexController extends BaseController
         //图标+文字
         $iconText = ImgDescModel::instance()->getList(5);
 
-        //文字
-        $desc = ImgDescModel::instance()->getList(6, 1);
+        //标题+文字+按钮
+        $titleBtn1 = ImgDescModel::instance()->getList(6, 1);
+
+        //标题+描述1
+        $titleDesc1 = ImgDescModel::instance()->getList(7, 1);
+
+        //标题+描述2
+        $titleDesc2 = ImgDescModel::instance()->getList(8, 1);
+
+        //视频
+        $video = ImgDescModel::instance()->getList(9, 1);
+
+        //底部按钮
+        $bottomBtn = ImgDescModel::instance()->getList(10, 1);
 
         return $this->render('index', [
             'bannerList' => $bannerList,
             'carousel' => $carousel,
             'product' => $product,
             'iconText' => $iconText,
-            'desc' => $desc
+            'titleBtn1' => $titleBtn1,
+            'titleDesc1' => $titleDesc1,
+            'titleDesc2' => $titleDesc2,
+            'video' => $video,
+            'bottomBtn' => $bottomBtn,
         ]);
+    }
+
+    public function actionError(){
+        return $this->render('error');
     }
 }
