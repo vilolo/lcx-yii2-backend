@@ -54,10 +54,10 @@ AppAsset::register($this);
     <div class="topbar d-none d-md-block">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-sm-4 col-md-2 col-lg-7">
+                <div class="col-sm-4 col-md-2 col-lg-6">
                     <p class="mb-0"><em><?php echo $this->params['company']['description']; ?></em></p>
                 </div>
-                <div class="col-sm-8 col-md-10 col-lg-5">
+                <div class="col-sm-8 col-md-10 col-lg-6">
                     <div class="info pull-right">
                         <div class="info-item">
                             <i class="fa fa-envelope-o"></i> Mail :  <?php echo $this->params['company']['email']; ?>
