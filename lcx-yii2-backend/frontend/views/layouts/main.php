@@ -91,7 +91,7 @@ AppAsset::register($this);
                                 </a>
                                 <div class="dropdown-menu">
                                     <?php foreach ($v['child'] as $v2): ?>
-                                        <?php if ($v2['child']): ?>
+                                        <?php if (isset($v2['child']) && !empty($v2['child'])): ?>
                                             <a class="dropdown-item dropdown-sub" href="javascript:"><?= $v2['name']?></a>
                                             <div class="dropdown-submenu">
                                                 <?php foreach ($v2['child'] as $v3): ?>
