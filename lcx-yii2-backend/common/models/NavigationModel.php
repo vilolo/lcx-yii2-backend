@@ -36,8 +36,8 @@ class NavigationModel extends BaseModel
         }else{
             $where = ['>=', 'level', 0];
         }
-        $list = $this->find()->where(['status' => 1])
-            ->andWhere($where)
+        $list = $this->find()
+            ->where($where)
             ->orderBy('relation, sort')->all();
         foreach ($list as $k => $v){
             if ($v['url']){
