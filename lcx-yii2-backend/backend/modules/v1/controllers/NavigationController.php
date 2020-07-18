@@ -49,8 +49,11 @@ class NavigationController extends BaseLoginController
     
     public function actionDel(){
         $params = \Yii::$app->request->getBodyParams();
-        NavigationModel::instance()
-            ->find()->where(['id' => $params['id']])->one()->delete();
+        $model = NavigationModel::instance();
+        $res = $model->find()->where(['id' => $params['id']])->one()->delete();
+        if ($res === false){
+            return RetUtil::errorReturn($model->getErrMsg());
+        }
         return RetUtil::successReturn();
     }
 }

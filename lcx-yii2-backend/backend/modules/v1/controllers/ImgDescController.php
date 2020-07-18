@@ -44,4 +44,14 @@ class ImgDescController extends BaseController
         $res = ImgDescCategoryModel::instance()->findAll(['status' => 1]);
         return RetUtil::successReturn($res);
     }
+
+    public function actionDel(){
+        $params = \Yii::$app->request->getBodyParams();
+        $model = ImgDescModel::instance();
+        $res = $model->find()->where(['id' => $params['id']])->one()->delete();
+        if ($res === false){
+            return RetUtil::errorReturn($model->getErrMsg());
+        }
+        return RetUtil::successReturn();
+    }
 }
