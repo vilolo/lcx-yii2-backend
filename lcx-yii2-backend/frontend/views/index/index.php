@@ -1,6 +1,6 @@
 <!-- BANNER -->
-<div class="banner">
-    <div class="owl-carousel owl-theme full-screen">
+<div class="banner" style="height: 70%;">
+        <div class="owl-carousel owl-theme full-screen">
         <?php foreach ($bannerList as $v): ?>
         <!-- Item 1 -->
         <div class="item">
@@ -142,7 +142,7 @@
             </div>
 
             <div class="row mt-4">
-                
+
                 <?php if (!empty($product)): foreach ($product as $v): ?>
                 <!-- Item 1 -->
                 <div class="col-sm-12 col-md-12 col-lg-4">
@@ -172,14 +172,3 @@
         </div>
     </div>
 </div>
-
-<?php
-$js = <<<JS
-    $('.owl-item').on('change', function() {
-      alert('1');
-    })
-
-JS;
-
-$this->registerJs($js);
-?>

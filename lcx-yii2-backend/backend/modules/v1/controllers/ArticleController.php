@@ -86,4 +86,14 @@ class ArticleController extends BaseController
         }
         return RetUtil::successReturn();
     }
+
+    public function actionDel(){
+        $params = \Yii::$app->request->getBodyParams();
+        $model = ArticleModel::instance();
+        $res = $model->find()->where(['id' => $params['id']])->one()->delete();
+        if ($res === false){
+            return RetUtil::errorReturn($model->getErrMsg());
+        }
+        return RetUtil::successReturn();
+    }
 }

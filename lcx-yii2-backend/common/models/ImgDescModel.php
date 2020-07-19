@@ -78,7 +78,7 @@ class ImgDescModel extends BaseModel
 
     public function getListAdmin($categoryId = 0, $limit = 0)
     {
-        $where = ['a.status' => 1];
+        $where = [];
         if ($categoryId > 0){
             $where['category_id'] = $categoryId;
         }
