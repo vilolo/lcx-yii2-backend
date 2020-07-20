@@ -63,7 +63,7 @@
                 <div class="col-sm-12 col-md-12 col-lg-4 mb-2">
                     <div class="box-icon-1 text-center">
                         <div class="icon">
-                            <img src="<?= $v['img'] ?>" width="86" height="86">
+                            <img src="<?= $v['img'] ?>" style="margin-bottom: 2px;" width="86" height="86">
                         </div>
                         <div class="body-content">
                             <h4><?= $v['desc1'] ?></h4>
