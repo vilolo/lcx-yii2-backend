@@ -45,16 +45,13 @@
 <div class="section">
     <div class="content-wrap">
         <div class="container">
-
             <div class="row">
-
                 <div class="col-sm-12 col-md-12">
                     <h2 class="section-heading text-center">
                         <?= $titleDesc1['desc1']??''?>
                     </h2>
                     <p class="subheading text-center mb-5"><?= $titleDesc1['desc2']??''?></p>
                 </div>
-
             </div>
 
             <div class="row">
