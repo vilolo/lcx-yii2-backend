@@ -1,5 +1,5 @@
 <!-- BANNER -->
-<div class="banner" style="height: 70%;">
+<div class="banner" style="height: 66%;">
         <div class="owl-carousel owl-theme full-screen">
         <?php foreach ($bannerList as $v): ?>
         <!-- Item 1 -->
@@ -79,15 +79,17 @@
 
 <!-- CTA -->
 <?php if ($video): ?>
-<div class="section bgi-cover-center cta" data-background="<?= $video['img']??''?>">
-    <div class="content-wrap">
+<div class="section bgi-cover-center cta" data-background="<?= $video['img']??''?>" style=" background-size: contain;background-repeat: no-repeat">
+    <div class="content-wrap" style="padding: 0;">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-sm-12 col-md-12 col-lg-8 offset-lg-2">
                     <div class="text-center">
                         <h2 class="text-white"><?= $video['desc1']??''?></h2>
                         <p class="uk18 text-white"><?= $video['desc2']??''?></p>
-                        <a href="<?= $video['url']??''?>" class="popup-youtube btn-video"><i class="fa fa-play fa-2x"></i></a>
+                        <a href="<?= $video['url']??''?>" class="popup-youtube btn-video">
+                            <i class="fa fa-play fa-2x" style="position: relative; margin-bottom: 30px;"></i>
+                        </a>
                     </div>
                 </div>
             </div>
