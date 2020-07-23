@@ -1,5 +1,5 @@
 <!-- BANNER -->
-<div class="banner" style="height: 66%;">
+<div class="banner" style="height: 64%;">
         <div class="owl-carousel owl-theme full-screen">
         <?php foreach ($bannerList as $v): ?>
         <!-- Item 1 -->
