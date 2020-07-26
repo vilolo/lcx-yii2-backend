@@ -9,19 +9,21 @@ use yii\web\AssetBundle;
  */
 class AppAsset extends AssetBundle
 {
-    public $basePath = '@webroot';
-    public $baseUrl = '@web';
-
     public $css = [
         'public/css/vendor/bootstrap.min.css',
         'public/css/vendor/font-awesome.min.css',
         'public/css/vendor/owl.carousel.min.css',
         'public/css/vendor/owl.theme.default.min.css',
+//        'public/plugins/OwlCarousel2-2.3.4/dist/assets/owl.carousel.min.css',
+//        'public/plugins/OwlCarousel2-2.3.4/dist/assets/owl.theme.default.min.css',
         'public/css/vendor/magnific-popup.css',
         'public/css/vendor/animate.min.css',
         'public/css/style.css',
 //        'public/css/bootsnav.css'
     ];
+    public $basePath = '@webroot';
+
+    public $baseUrl = '@web';
 
     public $js = [
 //        'public/js/bootsnav.js',
@@ -30,6 +32,7 @@ class AppAsset extends AssetBundle
         'public/js/vendor/jquery.min.js',
         'public/js/vendor/bootstrap.min.js',
         'public/js/vendor/owl.carousel.js',
+//        'public/plugins/OwlCarousel2-2.3.4/dist/owl.carousel.min.js',
         'public/js/vendor/jquery.magnific-popup.min.js',
         'public/js/vendor/isotope.pkgd.min.js',
         'public/js/vendor/imagesloaded.pkgd.min.js',

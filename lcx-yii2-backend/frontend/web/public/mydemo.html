@@ -1,0 +1,52 @@
+<html>
+<head>
+    <style>
+        
+    </style>
+    <!-- Important Owl stylesheet -->
+    <link rel="stylesheet" href="./plugins/OwlCarousel2-2.3.4/dist/assets/owl.carousel.min.css">
+    
+    <!-- Default Theme -->
+    <link rel="stylesheet" href="./plugins/OwlCarousel2-2.3.4/dist/assets/owl.theme.default.min.css">
+</head>
+<body>
+    <div class="owl-carousel owl-theme">
+          
+        <div class="item"><img src="https://demo.lanrenzhijia.com/2013/pic1201/demos/assets/owl1.jpg" alt="Owl Image"></div>
+        <div class="item"><img src="https://demo.lanrenzhijia.com/2013/pic1201/demos/assets/owl2.jpg" alt="Owl Image"></div>
+        <div class="item"><img src="https://demo.lanrenzhijia.com/2013/pic1201/demos/assets/owl3.jpg" alt="Owl Image"></div>
+        <div class="item"><img src="https://demo.lanrenzhijia.com/2013/pic1201/demos/assets/owl4.jpg" alt="Owl Image"></div>
+        <div class="item"><img src="https://demo.lanrenzhijia.com/2013/pic1201/demos/assets/owl5.jpg" alt="Owl Image"></div>
+        <div class="item"><img src="https://demo.lanrenzhijia.com/2013/pic1201/demos/assets/owl6.jpg" alt="Owl Image"></div>
+        <div class="item"><img src="https://demo.lanrenzhijia.com/2013/pic1201/demos/assets/owl7.jpg" alt="Owl Image"></div>
+        <div class="item"><img src="https://demo.lanrenzhijia.com/2013/pic1201/demos/assets/owl8.jpg" alt="Owl Image"></div>
+
+    </div>
+<script src="http://ajax.aspnetcdn.com/ajax/jquery/jquery-2.1.4.min.js"></script>
+<script src="./plugins/OwlCarousel2-2.3.4/dist/owl.carousel.min.js"></script>
+<script>
+$(document).ready(function() {
+ 
+    var owl = $(".owl-carousel");
+    owl.owlCarousel({
+        margin: 0,
+	    autoplay: true,
+		autoplayTimeout: 5000,
+		autoplayHoverPause: true,
+		items : 1,
+		dots: true,
+        loop: true,
+        //Callbacks
+		// onInitialized: function(e) {
+        //     $(".owl-carousel").data('items', e.item);
+        // }
+    });
+
+    owl.on('changed.owl.carousel', function(event) {
+        console.log(event)
+    })
+
+});
+</script>
+</body>
+</html>

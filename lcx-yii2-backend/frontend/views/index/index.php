@@ -96,28 +96,31 @@
 <?php endif; ?>
 
 <!-- WHO WE ARE -->
+<?php if(!empty($carousel)):?>
 <div class="section bg-gray-light">
     <div class="content-wrap">
         <div class="container">
             <div class="row">
-                <div class="col-sm-12 col-md-12 col-lg-6">
-                    <h2 class="section-heading text-left">
-                        <?= $desc['desc1']??'' ?>
-                    </h2>
-                    <?= $desc['desc2']??'' ?>
-                    <?php if ($desc): ?>
-                    <a href="<?=$v['url']?>" class="btn btn-primary">READ MORE</a>
-                    <?php endif; ?>
-                    <div class="spacer-30"></div>
-                </div>
+                <?php foreach ($carousel as $k => $v): ?>
+                    <div class="col-sm-12 col-md-12 col-lg-6 sync-text-img" tag="<?= $k ?>" style="display: <?php echo $k == 0 ? 'block;' : 'none;' ?>" >
+                        <h2 class="section-heading text-left">
+                            <?= $v['desc1'].'&nbsp;' ?>
+                        </h2>
+                        <?= $v['desc2'].'&nbsp;' ?>
+                        <?php if ($v['url']): ?>
+                            <a href="<?=$v['url']?>" class="btn btn-primary">READ MORE</a>
+                        <?php endif; ?>
+                        <div class="spacer-30"></div>
+                    </div>
+                <?php endforeach; ?>
                 <div class="col-sm-12 col-md-12 col-lg-6">
 
                     <div id="whoweare" class="whoweare owl-carousel owl-theme" data-background="../../public/images/laptop.png">
-                        <?php if(!empty($carousel)): foreach ($carousel as $v): ?>
+                        <?php foreach ($carousel as $v): ?>
                         <div class="item">
                             <img src="<?= $v['img']?>" alt="">
                         </div>
-                        <?php endforeach; endif; ?>
+                        <?php endforeach; ?>
                     </div>
 
                 </div>
@@ -125,6 +128,7 @@
         </div>
     </div>
 </div>
+<?php endif;?>
 
 <!-- LATEST NEWS -->
 <div class="section">

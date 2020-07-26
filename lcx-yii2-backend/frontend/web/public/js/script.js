@@ -94,7 +94,7 @@ $(document).ready(function(){
 	        '<i class="fa fa-angle-right" aria-hidden="true"></i>'
 	    ],
 	    navContainer: '.banner .custom-nav',
-	    items: 1,
+	    items: 1
 	});	
 
 	/* =================================
@@ -131,12 +131,18 @@ $(document).ready(function(){
 	whoweare.owlCarousel({
 		margin: 0,
 	    autoplay: true,
-		autoplayTimeout: 5000,
+		autoplayTimeout: 2000,
 		autoplayHoverPause: true,
 		items : 1,
 		dots: true,
 		loop: true
 	});
+
+	whoweare.on('changed.owl.carousel', function(event) {
+		//console.log(event.page.index)
+		$('.sync-text-img').hide();
+		$('.sync-text-img[tag='+event.page.index+']').show();
+	})
 
 	var carousel_2 = $(".testimonial-caro");
 	carousel_2.owlCarousel({

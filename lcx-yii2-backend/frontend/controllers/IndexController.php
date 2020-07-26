@@ -51,7 +51,6 @@ class IndexController extends BaseController
             'titleDesc2' => $titleDesc2,
             'video' => $video,
             'bottomBtn' => $bottomBtn,
-            'desc' => ['desc1'=>'尚未完成','desc2'=>'尚未完成','url'=>'尚未完成']
         ]);
     }
 
