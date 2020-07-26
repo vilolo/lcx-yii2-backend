@@ -31,7 +31,7 @@ AppAsset::register($this);
     <link rel="apple-touch-icon" sizes="72x72" href="../../public/images/apple-touch-icon-72x72.png">
     <link rel="apple-touch-icon" sizes="114x114" href="../../public/images/apple-touch-icon-114x114.png">
     <style>
-        .dropdown-submenu{display: none; position: absolute; margin-left: 100px; margin-top: -30px;}
+        .dropdown-submenu{display: none; position: absolute; margin-left: 200px; margin-top: -38px;}
         .dropdown-sub:hover +.dropdown-submenu{display:block;}
         .dropdown-submenu:hover {display:block;}
         .subitem {background-color: grey}

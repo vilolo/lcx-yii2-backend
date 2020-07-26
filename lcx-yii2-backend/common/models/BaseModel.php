@@ -54,6 +54,7 @@ class BaseModel extends ActiveRecord
     }
 
     public function updateBase64($file, $fileName, $folder = 'temp'){
+        $fileName = str_replace(' ', '_', $fileName);
         if (preg_match('/^(data:\s*image\/(\w+);base64,)/', $file, $result)){
             $path = \Yii::$app->basePath."/web/uploads/".$folder;
             if (!file_exists($path)) {

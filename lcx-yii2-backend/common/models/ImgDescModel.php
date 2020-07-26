@@ -70,7 +70,7 @@ class ImgDescModel extends BaseModel
         $res = $model->all();
 
         foreach ($res as $k => $v){
-            $res[$k]['img'] = $v['img'] ? \Yii::$app->params['backendUrl'].'/'.$v['img']:'';
+            $res[$k]['img'] = $v['img'] ? \Yii::$app->params['backendUrl'].$v['img']:'';
         }
 
         return $limit==1?($res[0]??[]):$res;
