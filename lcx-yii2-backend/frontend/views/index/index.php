@@ -82,8 +82,8 @@
             <div class="row align-items-center">
                 <div class="col-sm-12 col-md-12 col-lg-8 offset-lg-2">
                     <div class="text-center">
-                        <h2 class="text-white"><?= $video['desc1']??''?></h2>
-                        <p class="uk18 text-white"><?= $video['desc2']??''?></p>
+                        <h2 class="text-white"><?= $video['desc1'].'&nbsp;' ?></h2>
+                        <p class="uk18 text-white"><?= $video['desc2'].'&nbsp;' ?></p>
                         <a href="<?= $video['url']??''?>" class="popup-youtube btn-video">
                             <i class="fa fa-play fa-2x" style="position: relative; margin-bottom: 30px;"></i>
                         </a>
