@@ -86,14 +86,15 @@ class ImgDescModel extends BaseModel
             ->join('join', 'img_desc_category b', 'a.category_id = b.id')
             ->select('a.*, b.name category_name')
             ->asArray()->orderBy('id desc');
-
+        
         if ($limit>0){
             $model->limit($limit);
         }
         $res = $model->all();
-
         foreach ($res as $k => $v){
             $res[$k]['img'] = $v['img'] ? \Yii::$app->params['backendUrl'].'/'.$v['img']:'';
+            $res[$k]['created_at'] = date('Y-m-d H:i:s', $v['created_at']);
+            $res[$k]['updated_at'] = date('Y-m-d H:i:s', $v['updated_at']);
         }
 
         return $limit==1?($res[0]??[]):$res;
