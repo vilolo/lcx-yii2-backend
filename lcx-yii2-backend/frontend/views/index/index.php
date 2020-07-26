@@ -6,10 +6,10 @@
         <div class="item">
             <img src="<?= $v['img'] ?>" alt="Slider">
             <div class="container d-flex align-items-center h-left">
-                <div class="wrap-caption">
-                    <h1 class="caption-heading"><?= $v['desc1'] ?></h1>
-                    <p class="uk24"><?= $v['desc2'] ?></p>
-                    <a href="<?= $v['url'] ?>" class="btn btn-primary"><?= $v['btn_name'] ?></a>
+                <div class="wrap-caption" style="width: 100%; ">
+                    <h1 class="caption-heading"><?= $v['desc1'].'&nbsp;' ?></h1>
+                    <p class="uk24"><?= $v['desc2'].'&nbsp;' ?></p>
+                    <a href="<?= $v['url'] ?>" class="btn btn-primary" style="float: right;"><?= $v['btn_name'] ?></a>
                 </div>
             </div>
         </div>
