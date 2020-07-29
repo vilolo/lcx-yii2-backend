@@ -36,7 +36,7 @@ class IndexController extends BaseController
         $titleDesc2 = ImgDescModel::instance()->getList(8, 1);
 
         //视频
-        $video = ImgDescModel::instance()->getList(9, 1);
+        $videos = ImgDescModel::instance()->getList(9);
 
         //底部按钮
         $bottomBtn = ImgDescModel::instance()->getList(10, 1);
@@ -49,7 +49,7 @@ class IndexController extends BaseController
             'titleBtn1' => $titleBtn1,
             'titleDesc1' => $titleDesc1,
             'titleDesc2' => $titleDesc2,
-            'video' => $video,
+            'videos' => $videos,
             'bottomBtn' => $bottomBtn,
         ]);
     }

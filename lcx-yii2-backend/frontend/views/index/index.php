@@ -1,6 +1,6 @@
 <!-- BANNER -->
 <div class="banner" style="height: 64%;">
-        <div class="owl-carousel owl-theme full-screen">
+    <div class="owl-carousel owl-theme full-screen">
         <?php foreach ($bannerList as $v): ?>
         <!-- Item 1 -->
         <div class="item">
@@ -75,16 +75,18 @@
 </div>
 
 <!-- CTA -->
-<?php if ($video): ?>
-<div class="section bgi-cover-center cta" data-background="<?= $video['img']??''?>" style=" background-size: contain;background-repeat: no-repeat">
+<?php if (!empty($videos)): ?>
+<div id="videobox" class="owl-carousel owl-theme full-screen">
+<?php foreach ($videos as $v): ?>
+<div class="section bgi-cover-center cta" data-background="<?= $v['img']??''?>" style=" background-size: contain;background-repeat: no-repeat">
     <div class="content-wrap" style="padding: 0;">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-sm-12 col-md-12 col-lg-8 offset-lg-2">
                     <div class="text-center">
-                        <h2 class="text-white"><?= $video['desc1'].'&nbsp;' ?></h2>
-                        <p class="uk18 text-white"><?= $video['desc2'].'&nbsp;' ?></p>
-                        <a href="<?= $video['url']??''?>" class="popup-youtube btn-video">
+                        <h2 class="text-white"><?= $v['desc1'].'&nbsp;' ?></h2>
+                        <p class="uk18 text-white"><?= $v['desc2'].'&nbsp;' ?></p>
+                        <a href="<?= $v['url']??''?>" class="popup-youtube btn-video">
                             <i class="fa fa-play fa-2x" style="position: relative; margin-bottom: 30px;"></i>
                         </a>
                     </div>
@@ -92,6 +94,8 @@
             </div>
         </div>
     </div>
+</div>
+<?php endforeach;?>
 </div>
 <?php endif; ?>
 
@@ -175,3 +179,24 @@
         </div>
     </div>
 </div>
+
+<?php
+$js = <<<JS
+    $('#videobox').owlCarousel({
+	    // stagePadding: 50,
+	    loop: true,
+	    // margin: 10,
+	    autoplay: true,
+        autoplayTimeout: 5000,
+	    nav: true,
+	    dots: false,
+	    navText: [
+	        '<i class="fa fa-angle-left" aria-hidden="true"></i>',
+	        '<i class="fa fa-angle-right" aria-hidden="true"></i>'
+	    ],
+	    items: 1
+	});	
+JS;
+
+$this->registerJs($js);
+?>
