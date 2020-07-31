@@ -37,7 +37,7 @@ AppAsset::register($this);
         .subitem {background-color: grey}
     </style>
 </head>
-<body data-spy="scroll" data-target="#navbar-example">
+<body data-spy="scroll" data-target="#navbar-example" ondragstart="window.event.returnValue=false" oncontextmenu="window.event.returnValue=false" onselectstart="event.returnValue=false">
 <?php $this->beginBody() ?>
 <!-- LOAD PAGE -->
 <div class="animationload">
