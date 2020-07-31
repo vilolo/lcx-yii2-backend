@@ -112,7 +112,7 @@
                         </h2>
                         <?= $v['desc2'].'&nbsp;' ?>
                         <?php if ($v['url']): ?>
-                            <a href="<?=$v['url']?>" class="btn btn-primary">READ MORE</a>
+                            <a href="<?=$v['url']?>" class="btn btn-primary"><?= $v['btn_name'] ?></a>
                         <?php endif; ?>
                         <div class="spacer-30"></div>
                     </div>
@@ -155,7 +155,7 @@
                 <div class="col-sm-12 col-md-12 col-lg-4">
                     <div class="rs-news-1 mb-1">
                         <div class="media-box">
-                            <a href="blog-single.html">
+                            <a href="<?=$v['url']?>">
                                 <img src="<?= $v['img'] ?>" alt="" class="img-fluid">
                             </a>
                         </div>

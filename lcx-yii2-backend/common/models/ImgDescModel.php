@@ -21,6 +21,7 @@ class ImgDescModel extends BaseModel
             ['url', 'safe'],
             ['status', 'safe'],
             ['btn_name', 'safe'],
+            ['sort', 'safe'],
         ];
     }
 
@@ -62,7 +63,7 @@ class ImgDescModel extends BaseModel
             $where['category_id'] = $categoryId;
         }
         $model = $this->find()->where($where)
-            ->asArray()->orderBy('id desc');
+            ->asArray()->orderBy('sort, id desc');
 
         if ($limit>0){
             $model->limit($limit);
