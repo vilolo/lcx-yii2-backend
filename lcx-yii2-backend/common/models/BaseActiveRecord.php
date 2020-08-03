@@ -3,6 +3,7 @@
 namespace common\models;
 
 use common\error\ErrorCode;
+use phpDocumentor\Reflection\Types\Boolean;
 use Yii;
 use yii\db\ActiveQuery;
 use yii\db\ExpressionInterface;
@@ -54,7 +55,7 @@ class BaseActiveRecord extends \yii\db\ActiveRecord
      */
     public function getAllByCondition(array $condition, $orderBy = 'id DESC', array $columns = [], $distinct = false)
     {
-        $condition['del_state'] = self::DEL_STATE_NO;
+        //$condition['del_state'] = self::DEL_STATE_NO;
         $modelClass = get_class($this);
         try {
             /**
@@ -298,7 +299,7 @@ class BaseActiveRecord extends \yii\db\ActiveRecord
      *
      * @return bool
      */
-    public function createData(array $postdata, bool $returnLastId = false)
+    public function createData(array $postdata, Boolean $returnLastId = null)
     {
         try {
             $model = new static();

@@ -11,6 +11,7 @@ namespace common\models;
 
 class ArticleModel extends BaseModel
 {
+    public $category_name;
     public function rules()
     {
         return [
@@ -30,12 +31,21 @@ class ArticleModel extends BaseModel
 
     public function getList()
     {
-        $res = $this->find()->select('id, title, cover, category_id, status, created_at, updated_at')
+        $res = $this->find()
+            //->select('a.id, a.title, a.cover, ifnull(ac.name, "") category_name, a.status, a.created_at, a.updated_at')
+            ->select(['a.id', 'a.title', 'a.cover', 'ifnull(ac.name, "") category_name', 'a.status', 'a.created_at', 'a.updated_at'])
+            ->alias('a')
+            ->join('left join', 'article_category ac', 'a.category_id = ac.id')
             ->orderBy('id desc')
+            ->asArray()
             ->all();
         foreach ($res as $k => $v){
             $res[$k]['cover'] = $v['cover'] ? \Yii::$app->params['backendUrl'].'/'.$v['cover']:'';
         }
         return $res;
+    }
+
+    public function getCategoryArticleList($id){
+//        $res =
     }
 }

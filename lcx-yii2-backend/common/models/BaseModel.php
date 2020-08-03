@@ -11,9 +11,8 @@ namespace common\models;
 
 use common\error\ErrorCode;
 use common\error\ReturnErrorTrait;
-use yii\db\ActiveRecord;
 
-class BaseModel extends ActiveRecord
+class BaseModel extends BaseActiveRecord
 {
     use ReturnErrorTrait;
 

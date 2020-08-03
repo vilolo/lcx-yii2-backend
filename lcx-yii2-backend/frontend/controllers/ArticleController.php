@@ -24,4 +24,12 @@ class ArticleController extends BaseController
             'banner' => $bannerList
         ]);
     }
+
+    public function actionCategoryArticle(){
+        $id = \Yii::$app->request->get('id');
+        $list = ArticleModel::instance()->getAllByCondition(['category_id' => $id]);
+        return $this->render('categoryList', [
+            'list' => $list,
+        ]);
+    }
 }

@@ -11,6 +11,7 @@ namespace backend\modules\v1\controllers;
 
 use backend\modules\v1\controllers\base\BaseController;
 use common\error\ErrorCode;
+use common\error\ErrorInfo;
 use common\models\ArticleCategoryModel;
 use common\models\ArticleModel;
 use common\utils\RetUtil;
@@ -29,6 +30,22 @@ class ArticleController extends BaseController
             return RetUtil::errorReturn();
         }
         return RetUtil::successReturn();
+    }
+
+    public function actionDelCategory(){
+        $params = \Yii::$app->request->getBodyParams();
+        $model = ArticleCategoryModel::instance();
+        $res = $model->find()->where(['id' => $params['id']])->one()->delete();
+        if ($res === false){
+            return RetUtil::errorReturn($model->getErrMsg());
+        }
+        return RetUtil::successReturn();
+    }
+
+    public function actionCategoryDetail(){
+        $params = \Yii::$app->request->get();
+        $res = ArticleCategoryModel::instance()->findOne(['id' => $params['id']]);
+        return RetUtil::successReturn($res);
     }
 
     public function actionList(){
