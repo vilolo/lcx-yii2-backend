@@ -86,7 +86,7 @@ AppAsset::register($this);
                         <?php foreach ($this->params['navList'] as $v):?>
                             <?php if (isset($v['child']) && !empty($v['child'])):?>
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="<?= $v['url'] ?>" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <a class="nav-link dropdown-toggle" href="" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <?= $v['name'] ?>
                                 </a>
                                 <div class="dropdown-menu">

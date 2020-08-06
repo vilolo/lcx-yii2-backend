@@ -1,16 +1,39 @@
+<style>
+    .post-list {
+        width: 100%;
+    }
+    .post-list img{
+        width: 300px;
+        height: 200px;
+        border: dotted #3c3c3c 1px;
+    }
+    .post-item{
+        padding: 10px;
+    }
+
+    .post-item:hover{
+        background-color: #eee;
+    }
+
+    .post-title{
+        color: #000;
+        margin-left: 20px;
+        size: 16px;
+    }
+</style>
 <div class="section">
     <div class="content-wrap">
         <div class="container">
             <div class="row">
-                <div class="comments-box">
-                <?php foreach ($list as $v): ?>
-                <div class="media comment">
-                    <img class="mr-3" src="<?=$v['cover']?>">
-                    <div class="media-body">
-                        <h2 class="media-heading mt-0 mb-1"><small class="date"><?=$v['title']?></small></h2>
-                    </div>
-                </div>
-                <?php endforeach; ?>
+                <div class="post-list">
+                    <?php foreach ($list as $item):?>
+                        <div class="post-item">
+                            <a href="<?=$item['url']?>">
+                                <img src="<?=$item['cover']?>">
+                                <span class="post-title"><?=$item['title']?></span>
+                            </a>
+                        </div>
+                    <?php endforeach;?>
                 </div>
             </div>
         </div>

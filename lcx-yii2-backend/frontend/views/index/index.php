@@ -76,7 +76,7 @@
 
 <!-- CTA -->
 <?php if (!empty($videos)): ?>
-<div id="videobox" class="owl-carousel owl-theme full-screen">
+<div id="videobox" class="owl-carousel owl-theme">
 <?php foreach ($videos as $v): ?>
 <div class="section bgi-cover-center cta" data-background="<?= $v['img']??''?>" style=" background-size: contain;background-repeat: no-repeat">
     <div class="content-wrap" style="padding: 0;">
