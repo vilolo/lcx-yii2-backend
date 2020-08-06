@@ -26,9 +26,12 @@ class ArticleCategoryModel extends BaseModel
         return 'article_category';
     }
 
-    public function getList(){
-        $list = $this->find()->all();
-        return $list;
+    public function getList($isSelect = false){
+        $model = $this->find();
+        if ($isSelect){
+            $model->where(['status' => 1]);
+        }
+        return $model->all();
     }
     
 }

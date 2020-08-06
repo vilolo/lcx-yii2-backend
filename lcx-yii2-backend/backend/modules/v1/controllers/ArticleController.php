@@ -23,6 +23,11 @@ class ArticleController extends BaseController
         return RetUtil::successReturn($list);
     }
 
+    public function actionSelectCategoryList(){
+        $list = ArticleCategoryModel::instance()->getList(true);
+        return RetUtil::successReturn($list);
+    }
+
     public function actionCategorySave(){
         $params = \Yii::$app->request->getBodyParams();
         $res = ArticleCategoryModel::instance()->doSave($params);
