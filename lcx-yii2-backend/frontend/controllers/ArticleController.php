@@ -28,6 +28,11 @@ class ArticleController extends BaseController
     public function actionCategoryArticle(){
         $id = \Yii::$app->request->get('id');
         $list = ArticleModel::instance()->getAllByCondition(['category_id' => $id]);
+        foreach ($list as $k => $v){
+            if (isset($list[$k]['cover'])){
+                $list[$k]['cover'] = $v['cover'] ? \Yii::$app->params['backendUrl'].'/'.$v['cover']:'';
+            }
+        }
         return $this->render('categoryList', [
             'list' => $list,
         ]);
