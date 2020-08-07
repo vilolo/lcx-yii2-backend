@@ -28,7 +28,7 @@
                 <div class="post-list">
                     <?php foreach ($list as $item):?>
                         <div class="post-item">
-                            <a href="<?=$item['url']?>">
+                            <a href="/index.php/article?id=<?=$item['id']?>">
                                 <img src="<?=$item['cover']?>">
                                 <span class="post-title"><?=$item['title']?></span>
                             </a>
