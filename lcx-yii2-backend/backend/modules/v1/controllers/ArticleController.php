@@ -75,7 +75,7 @@ class ArticleController extends BaseController
     }
 
     public function actionGetSelectList(){
-        $res = ArticleModel::instance()->find()->where(['status' => 1])->select('id, title')->all();
+        $res = ArticleModel::instance()->find()->where(['status' => 1])->select('id, title, keyword')->all();
         return RetUtil::successReturn($res);
     }
 
