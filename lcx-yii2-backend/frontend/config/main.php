@@ -41,13 +41,13 @@ return [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
-//                [
-//                    'class' => 'yii\rest\UrlRule',
-//                    'controller' => ['contact-us'],
-//                    'extraPatterns' => [
-//                        'POST do-save' => 'do-save',
-//                    ],
-//                ],
+                [
+                    'class' => 'yii\rest\UrlRule',
+                    'controller' => ['article'],
+                    'extraPatterns' => [
+                        'GET <keyword:\w+>' => 'keyword',
+                    ],
+                ],
             ],
         ],
     ],

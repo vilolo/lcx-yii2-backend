@@ -25,6 +25,16 @@ class ArticleController extends BaseController
         ]);
     }
 
+    public function actionKeyword($keyword)
+    {
+        $article = ArticleModel::findOne(['keyword' => $keyword, 'status' => 1]);
+        $bannerList = ImgDescModel::instance()->getList(2, 1);
+        return $this->render('index', [
+            'data' => $article,
+            'banner' => $bannerList
+        ]);
+    }
+
     public function actionCategoryArticle(){
         $id = \Yii::$app->request->get('id');
         $list = ArticleModel::instance()->getAllByCondition(['category_id' => $id]);
