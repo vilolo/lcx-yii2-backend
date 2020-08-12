@@ -167,7 +167,92 @@
                 </div>
                 <?php endforeach; endif;?>
             </div>
+        </div>
+    </div>
+</div>
 
+<div class="section">
+    <div class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 col-md-12">
+                    <h2 class="section-heading text-center text-primary no-after mb-5">
+                        <?= $titleDesc2['desc1']??''?>
+                    </h2>
+                    <p class="subheading text-center"><?= $titleDesc2['desc2']??''?></p>
+                </div>
+            </div>
+            
+            <div class="row">
+                <!-- Item 1 -->
+                <div class="col-sm-6 col-md-6 mb-5">
+                    <div class="rs-news-1">
+                        <div class="media-box">
+                            <div class="meta-date"><span>30</span>May</div>
+                            <a href="blog-single.html">
+                                <img src="http://198.35.45.87:9072/public/images/dummy-img-900x500.jpg" alt="" class="img-fluid">
+                            </a>
+                        </div>
+                        <div class="body-box">
+
+                            <div class="title"><a href="blog-single.html">MORE POWER WITH OUR PROGRAMS</a></div>
+                            <p>We provide high quality design at vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores...</p>
+                            <a href="blog-single.html" class="btn btn-primary">READ MORE</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Item 1 -->
+                <div class="col-sm-6 col-md-6 mb-5">
+                    <div class="rs-news-1">
+                        <div class="media-box">
+                            <div class="meta-date"><span>30</span>May</div>
+                            <a href="blog-single.html">
+                                <img src="http://198.35.45.87:9072/public/images/dummy-img-900x500.jpg" alt="" class="img-fluid">
+                            </a>
+                        </div>
+                        <div class="body-box">
+
+                            <div class="title"><a href="blog-single.html">MORE POWER WITH OUR PROGRAMS</a></div>
+                            <p>We provide high quality design at vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores...</p>
+                            <a href="blog-single.html" class="btn btn-primary">READ MORE</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Item 1 -->
+                <div class="col-sm-6 col-md-6 mb-5">
+                    <div class="rs-news-1">
+                        <div class="media-box">
+                            <div class="meta-date"><span>30</span>May</div>
+                            <a href="blog-single.html">
+                                <img src="http://198.35.45.87:9072/public/images/dummy-img-900x500.jpg" alt="" class="img-fluid">
+                            </a>
+                        </div>
+                        <div class="body-box">
+
+                            <div class="title"><a href="blog-single.html">MORE POWER WITH OUR PROGRAMS</a></div>
+                            <p>We provide high quality design at vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores...</p>
+                            <a href="blog-single.html" class="btn btn-primary">READ MORE</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Item 1 -->
+                <div class="col-sm-6 col-md-6 mb-5">
+                    <div class="rs-news-1">
+                        <div class="media-box">
+                            <div class="meta-date"><span>30</span>May</div>
+                            <a href="blog-single.html">
+                                <img src="http://198.35.45.87:9072/public/images/dummy-img-900x500.jpg" alt="" class="img-fluid">
+                            </a>
+                        </div>
+                        <div class="body-box">
+
+                            <div class="title"><a href="blog-single.html">MORE POWER WITH OUR PROGRAMS</a></div>
+                            <p>We provide high quality design at vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores...</p>
+                            <a href="blog-single.html" class="btn btn-primary">READ MORE</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="row mt-4">
                 <div class="col-sm-12 col-md-12 col-lg-12">
                     <div class="text-center">
@@ -175,7 +260,6 @@
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
 </div>
