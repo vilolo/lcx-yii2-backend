@@ -42,7 +42,7 @@ class NavigationModel extends BaseModel
         foreach ($list as $k => $v){
             if ($v['url']){
                 if (strpos($v['url'], 'http') === false){
-                    $list[$k]['url'] = \Yii::$app->params['frontendUrl'].'/'.$v['url'];
+                    $list[$k]['url'] = \Yii::$app->params['frontendUrl'].$v['url'];
                 }
             }
             $v['name'] = !$isFoot ? str_repeat(' --> ', $v['level']).$v['name'] : $v['name'];
