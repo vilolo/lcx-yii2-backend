@@ -41,6 +41,12 @@ class IndexController extends BaseController
         //底部按钮
         $bottomBtn = ImgDescModel::instance()->getList(10, 1);
 
+        //底部按钮
+        $titleDesc3 = ImgDescModel::instance()->getList(11, 1);
+
+        //底部按钮
+        $blog = ImgDescModel::instance()->getList(12);
+
         return $this->render('index', [
             'bannerList' => $bannerList,
             'carousel' => $carousel,
@@ -51,6 +57,8 @@ class IndexController extends BaseController
             'titleDesc2' => $titleDesc2,
             'videos' => $videos,
             'bottomBtn' => $bottomBtn,
+            'titleDesc3' => $titleDesc3,
+            'blog' => $blog,
         ]);
     }
 

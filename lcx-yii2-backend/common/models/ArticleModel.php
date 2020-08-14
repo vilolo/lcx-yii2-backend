@@ -45,8 +45,4 @@ class ArticleModel extends BaseModel
         }
         return $res;
     }
-
-    public function getCategoryArticleList($id){
-//        $res =
-    }
 }
