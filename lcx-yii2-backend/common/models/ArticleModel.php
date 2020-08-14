@@ -22,6 +22,7 @@ class ArticleModel extends BaseModel
             ['plugin_id', 'safe'],
             ['status', 'in', 'range' => [1,2]],
             ['keyword', 'safe'],
+            ['sort', 'safe'],
         ];
     }
 
@@ -34,7 +35,7 @@ class ArticleModel extends BaseModel
     {
         $res = $this->find()
             //->select('a.id, a.title, a.cover, ifnull(ac.name, "") category_name, a.status, a.created_at, a.updated_at')
-            ->select(['a.id', 'a.title', 'a.cover', 'ifnull(ac.name, "") category_name', 'a.keyword', 'a.status', 'a.created_at', 'a.updated_at'])
+            ->select(['a.id', 'a.title', 'a.cover', 'ifnull(ac.name, "") category_name', 'a.keyword', 'a.status', 'a.created_at', 'a.updated_at', 'a.sort'])
             ->alias('a')
             ->join('left join', 'article_category ac', 'a.category_id = ac.id')
             ->orderBy('id desc')
