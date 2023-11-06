@@ -1,7 +1,7 @@
 <?php
 
 namespace backend\modules\v1\controllers;
-use backend\modules\v1\controllers\base\BaseLoginController;
+use backend\modules\v1\controllers\base\BaseController;
 use common\constants\BConstant;
 use common\models\CompanyInfoModel;
 use common\utils\RetUtil;
@@ -12,7 +12,7 @@ use common\utils\RetUtil;
  * Date: 2020/6/18
  * Time: 15:29
  */
-class DemoController extends BaseLoginController
+class DemoController extends BaseController
 {
     public function actionIndex(){
         $model = new CompanyInfoModel();

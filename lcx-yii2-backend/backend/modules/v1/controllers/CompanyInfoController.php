@@ -8,14 +8,14 @@
 
 namespace backend\modules\v1\controllers;
 
-use backend\modules\v1\controllers\base\BaseLoginController;
+use backend\modules\v1\controllers\base\BaseController;
 use common\error\ErrorCode;
 use common\error\ErrorInfo;
 use common\models\CompanyInfoModel;
 use common\utils\RetUtil;
 use yii\web\UploadedFile;
 
-class CompanyInfoController extends BaseLoginController
+class CompanyInfoController extends BaseController
 {
     private $cid = 1;
     public function actionGetInfo(){

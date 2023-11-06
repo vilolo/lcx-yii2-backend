@@ -9,12 +9,12 @@
 namespace backend\modules\v1\controllers;
 
 
-use backend\modules\v1\controllers\base\BaseLoginController;
+use backend\modules\v1\controllers\base\BaseController;
 use common\error\ErrorCode;
 use common\models\NavigationModel;
 use common\utils\RetUtil;
 
-class NavigationController extends BaseLoginController
+class NavigationController extends BaseController
 {
     public function actionList(){
         $list = NavigationModel::instance()->getList();
