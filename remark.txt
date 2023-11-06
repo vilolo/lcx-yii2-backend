@@ -1,1 +1,4 @@
 'defaultRoute' => 'index',
+
+更新报错
+https://blog.csdn.net/lxw1844912514/article/details/114040564

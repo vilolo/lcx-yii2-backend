@@ -22,6 +22,7 @@ class BaseController extends Controller
     }
 
     public function init(){
+        parent::init();
         //获取公司信息
         $company = CompanyInfoModel::findOne(['id' => 1]);
         if (isset($company['logo']) && $company['logo']){
